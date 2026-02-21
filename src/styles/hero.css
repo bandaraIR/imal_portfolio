@@ -1,0 +1,159 @@
+.hero2{
+  height: 100vh;
+  overflow: hidden;
+  padding: 0;
+  position: relative;
+  color: #fff;
+  background: #050505;
+  /* ✅ No ::before / ::after glow — ScrollGlow component handles it */
+}
+
+/* keep all hero content above the shared glow */
+.hero2__nav,
+.hero2__wrap{
+  position: relative;
+  z-index: 2;
+}
+
+/* LAYOUT */
+.hero2__wrap{
+  width: min(1180px, 92%);
+  margin: 0 auto;
+  padding-top: 64px;
+  display: grid;
+  grid-template-columns: 1.05fr 0.95fr;
+  gap: 30px;
+  align-items: center;
+}
+
+/* LEFT */
+.hero2__hello{
+  font-family: "Poppins", sans-serif;
+  color: rgba(255,255,255,0.85);
+  font-size: 22px;
+  font-weight: 100;
+  letter-spacing: 1px;
+  margin-bottom: 14px;
+}
+.hero2__hello span{ color:#ff7a00; font-weight:700; }
+
+.hero2__title{
+  font-size: 78px;
+  line-height: 0.95;
+  margin: 0 0 16px;
+  letter-spacing: -1px;
+}
+
+.hero2__desc{
+  max-width: 520px;
+  color: rgba(255,255,255,0.62);
+  line-height: 1.7;
+}
+
+.hero2__actions{
+  margin-top: 26px;
+  display: flex;
+  gap: 14px;
+  align-items: center;
+}
+
+.btn{
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  border: none;
+  text-decoration: none;
+}
+
+.btn--primary{
+  padding: 12px 20px;
+  border-radius: 14px;
+  background: #ff7a00;
+  color: #1b0f05;
+  font-weight: 700;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+.btn--primary:hover{
+  transform: translateY(-3px);
+  box-shadow: 0 10px 30px rgba(255,122,0,0.4);
+}
+
+.btn--secondary{
+  padding: 12px 20px;
+  border-radius: 14px;
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.12);
+  color: white;
+  font-weight: 600;
+  text-decoration: none;
+  backdrop-filter: blur(10px);
+  transition: all 0.3s ease;
+}
+.btn--secondary:hover{
+  background: rgba(255,255,255,0.12);
+  transform: translateY(-3px);
+}
+
+.btn--icon{
+  width: 44px;
+  height: 44px;
+  border-radius: 14px;
+  border: 1px solid rgba(255,255,255,0.12);
+  background: rgba(255,255,255,0.05);
+  color: rgba(255,255,255,0.9);
+}
+
+/* RIGHT */
+.hero2__right{
+  position: relative;
+  flex: 1;
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end;
+  min-height: 600px;
+  z-index: 2;
+}
+
+.hero2__img {
+  width: 460px;
+  max-width: 100%;
+  height: auto;
+  object-fit: contain;
+  pointer-events: none;
+  user-select: none;
+  transform: translateY(60px);
+}
+
+/* Floating tech badges */
+.float{
+  position: absolute;
+  width: 54px; height: 54px;
+  border-radius: 16px;
+  border: 1px solid rgba(255,255,255,0.10);
+  background: rgba(0,0,0,0.20);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 800;
+  font-size: 14px;
+  color: rgba(255,255,255,0.85);
+  backdrop-filter: blur(10px);
+  animation: floaty 3.8s ease-in-out infinite;
+}
+.float--html{ left: 18px;  top: 120px;    animation-delay: .1s; }
+.float--css { left: 90px;  bottom: 130px; animation-delay: .6s; }
+.float--js  { right: 40px; bottom: 170px; animation-delay: .3s; }
+
+@keyframes floaty{
+  0%,100%{ transform: translateY(0); }
+  50%{ transform: translateY(-10px); }
+}
+
+/* Responsive */
+@media (max-width: 900px){
+  .hero2__wrap{ grid-template-columns: 1fr; padding-top: 36px; }
+  .hero2__title{ font-size: 58px; }
+  .hero2__right{ min-height: 440px; }
+}
