@@ -6,7 +6,7 @@ import About from "./pages/About.jsx";
 import Skills from "./pages/Skills.jsx";
 import Projects from "./pages/Projects.jsx";
 import ProjectDetail from "./pages/Projectdetail.jsx";
-import Contact from "./pages/contact.jsx";
+import Contact from "./pages/Contact.jsx"
 import ScrollGlow from "./pages/scrollglow.jsx";
 
 function MainLayout() {
