@@ -5,10 +5,8 @@
   position: relative;
   color: #fff;
   background: #050505;
-  /* ✅ No ::before / ::after glow — ScrollGlow component handles it */
 }
 
-/* keep all hero content above the shared glow */
 .hero2__nav,
 .hero2__wrap{
   position: relative;
@@ -55,6 +53,7 @@
   display: flex;
   gap: 14px;
   align-items: center;
+  flex-wrap: wrap;
 }
 
 .btn{
@@ -151,9 +150,115 @@
   50%{ transform: translateY(-10px); }
 }
 
-/* Responsive */
+/* ── TABLET (max 900px) ───────────────────────────── */
 @media (max-width: 900px){
-  .hero2__wrap{ grid-template-columns: 1fr; padding-top: 36px; }
-  .hero2__title{ font-size: 58px; }
-  .hero2__right{ min-height: 440px; }
+  .hero2{
+    height: auto;
+    min-height: 100vh;
+    overflow: hidden;
+  }
+
+  .hero2__wrap{
+    grid-template-columns: 1fr;
+    padding-top: 36px;
+    padding-bottom: 20px;
+    text-align: center;
+    gap: 10px;
+  }
+
+  .hero2__title{ font-size: 52px; }
+
+  .hero2__hello{ font-size: 20px; }
+
+  .hero2__desc{
+    margin: 0 auto;
+  }
+
+  .hero2__actions{
+    justify-content: center;
+  }
+
+  .hero2__right{
+    min-height: 340px;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .hero2__img{
+    width: 320px;
+    transform: translateY(20px);
+  }
+
+  .float--html{ left: 10px;  top: 60px; }
+  .float--css { left: 30px;  bottom: 60px; }
+  .float--js  { right: 20px; bottom: 80px; }
+}
+
+/* ── MOBILE (max 480px) ───────────────────────────── */
+@media (max-width: 480px){
+  .hero2__wrap{
+    padding-top: 28px;
+    width: 94%;
+  }
+
+  .hero2__title{
+    font-size: 38px;
+    letter-spacing: -0.5px;
+  }
+
+  .hero2__hello{
+    font-size: 17px;
+    margin-bottom: 10px;
+  }
+
+  .hero2__desc{
+    font-size: 14px;
+    line-height: 1.65;
+  }
+
+  .hero2__actions{
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    margin-top: 20px;
+  }
+
+  .btn--primary,
+  .btn--secondary{
+    width: 100%;
+    max-width: 280px;
+    text-align: center;
+    padding: 13px 20px;
+  }
+
+  .hero2__right{
+    min-height: 280px;
+  }
+
+  .hero2__img{
+    width: 220px;
+    transform: translateY(10px);
+  }
+
+  .float{
+    width: 44px;
+    height: 44px;
+    font-size: 11px;
+    border-radius: 12px;
+  }
+
+  .float--html{ left: 4px;  top: 40px; }
+  .float--css { left: 10px; bottom: 30px; }
+  .float--js  { right: 8px; bottom: 50px; }
+}
+
+/* ── VERY SMALL (max 360px) ───────────────────────── */
+@media (max-width: 360px){
+  .hero2__title{ font-size: 32px; }
+
+  .hero2__hello{ font-size: 15px; }
+
+  .hero2__img{ width: 190px; }
+
+  .float{ display: none; }
 }
