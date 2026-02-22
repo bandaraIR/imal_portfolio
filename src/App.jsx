@@ -5,7 +5,7 @@ import Hero from "./pages/Hero.jsx";
 import About from "./pages/About.jsx";
 import Skills from "./pages/Skills.jsx";
 import Projects from "./pages/Projects.jsx";
-import ProjectDetail from "./pages/ProjectDetail.jsx";
+import ProjectDetail from "./pages/Projectdetail.jsx";
 import Contact from "./pages/contact.jsx";
 import ScrollGlow from "./pages/scrollglow.jsx";
 
