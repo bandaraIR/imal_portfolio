@@ -5,7 +5,6 @@ import { projects } from "./Projects.jsx";
 import "../styles/project-detail.css";
 
 // ── Project images ──────────────────────────────────────────
-// Add images here as you get them. Key = project id.
 import auriImg      from "../assets/auri1.jpg";
 import portfolioImg  from "../assets/ir-portfolio.jpeg";
 import autocareImg   from "../assets/CarRental.jpeg";
@@ -17,7 +16,6 @@ const projectImages = {
   autocare:       autocareImg,
   spacestyler:   null,
 };
-// ────────────────────────────────────────────────────────────
 
 const projectDetails = {
   auri: {
@@ -62,7 +60,6 @@ function ProgressCircle({ progress }) {
   const isComplete = progress === 100;
   const label = isComplete ? "Completed" : "In Progress";
   const color = isComplete ? "#4ade80" : "#ff7a00";
-
   const cx = 22, cy = 22, r = 14;
 
   const quarterPath = (startDeg, endDeg) => {
@@ -79,10 +76,7 @@ function ProgressCircle({ progress }) {
   return (
     <div className="progress-circle" title={`${label} · ${progress}%`}>
       <svg width="44" height="44" viewBox="0 0 44 44">
-        {/* Track ring */}
         <circle cx={cx} cy={cy} r={r} fill="none" stroke="rgba(255,255,255,0.06)" strokeWidth="1" />
-
-        {/* Quarter slices */}
         {quarters.map((start, i) => {
           const filled = progress >= start + 25;
           const partial = !filled && progress > start;
@@ -97,12 +91,9 @@ function ProgressCircle({ progress }) {
             />
           );
         })}
-
-        {/* Center dot */}
         <circle cx={cx} cy={cy} r="5.5" fill="#0d0d0d" />
         <circle cx={cx} cy={cy} r="2" fill={color} />
       </svg>
-
       <div className="progress-circle__info">
         <span className="progress-circle__label" style={{ color }}>{label}</span>
         <span className="progress-circle__pct" style={{ color: `${color}99` }}>{progress}%</span>
@@ -110,7 +101,6 @@ function ProgressCircle({ progress }) {
     </div>
   );
 }
-// ────────────────────────────────────────────────────────────
 
 export default function ProjectDetail() {
   const { id } = useParams();
@@ -129,7 +119,7 @@ export default function ProjectDetail() {
     return (
       <div className="detail-notfound">
         <p>Project not found.</p>
-        <button onClick={() => navigate("/")}>← Go Back</button>
+        <button onClick={() => navigate(-1)}>← Go Back</button>
       </div>
     );
   }
@@ -143,7 +133,7 @@ export default function ProjectDetail() {
       {/* Back button */}
       <motion.button
         className="detail__back"
-        onClick={() => navigate("/")}
+        onClick={() => navigate(-1)}
         initial={{ opacity: 0, x: -16 }}
         animate={{ opacity: 1, x: 0 }}
         transition={{ duration: 0.4 }}
@@ -167,7 +157,6 @@ export default function ProjectDetail() {
 
           <h1 className="detail__title">{project.title}</h1>
 
-          {/* ── Progress Circle ── */}
           <ProgressCircle progress={detail.progress} />
 
           <p className="detail__desc">{project.desc}</p>
@@ -177,7 +166,6 @@ export default function ProjectDetail() {
             ))}
           </div>
 
-          {/* GitHub Link */}
           {detail.github && (
             <a
               href={detail.github}
@@ -193,7 +181,7 @@ export default function ProjectDetail() {
           )}
         </motion.div>
 
-        {/* ── Hero image ── */}
+        {/* Hero image */}
         <motion.div
           className="detail__img"
           initial={{ opacity: 0, y: 24 }}
