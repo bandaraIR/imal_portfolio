@@ -1,14 +1,13 @@
-.about{
-  height: 100vh;             /* ✅ fixed to screen height, no overflow */
+.about {
+  min-height: 100vh;
   background: transparent;
   color: #fff;
   display: flex;
   align-items: center;
-  padding: 0;
-  overflow: hidden;          /* ✅ nothing bleeds out */
+  padding: 80px 0;
 }
 
-.about__wrap{
+.about__wrap {
   width: min(1180px, 92%);
   margin: 0 auto;
   position: relative;
@@ -18,83 +17,164 @@
   grid-template-columns: 1.1fr 0.9fr;
   gap: 30px;
   align-items: center;
-  /* ✅ padding removed — flexbox centers it perfectly */
 }
 
-.about__eyebrow{
-  color: rgba(255,255,255,0.65);
+.about__eyebrow {
+  color: rgba(255, 255, 255, 0.65);
   letter-spacing: 1px;
   text-transform: uppercase;
   font-size: 12px;
   margin-bottom: 10px;
 }
 
-.about__title{
+.about__title {
   font-size: 44px;
   line-height: 1.1;
   margin-bottom: 14px;
 }
 
-.about__desc{
-  color: rgba(255,255,255,0.68);
+.about__desc {
+  color: rgba(255, 255, 255, 0.68);
   line-height: 1.75;
   max-width: 560px;
 }
 
-.about__stats{
+.about__stats {
   margin-top: 22px;
   display: flex;
   gap: 14px;
   flex-wrap: wrap;
 }
 
-.stat{
-  min-width: 150px;
+.stat {
+  min-width: 130px;
   padding: 14px 16px;
   border-radius: 18px;
-  background: rgba(255,255,255,0.05);
-  border: 1px solid rgba(255,255,255,0.10);
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.10);
   backdrop-filter: blur(12px);
 }
 
-.stat h3{
+.stat h3 {
   font-size: 22px;
   margin: 0;
 }
 
-.stat p{
+.stat p {
   margin: 6px 0 0;
-  color: rgba(255,255,255,0.60);
+  color: rgba(255, 255, 255, 0.60);
   font-size: 13px;
 }
 
-.about__card{
+.about__card {
   padding: 20px;
   border-radius: 22px;
-  background: rgba(255,255,255,0.05);
-  border: 1px solid rgba(255,255,255,0.10);
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.10);
   backdrop-filter: blur(14px);
-  box-shadow: 0 18px 40px rgba(0,0,0,0.35);
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.35);
 }
 
-.about__card h3{
+.about__card h3 {
   margin-bottom: 12px;
 }
 
-.about__card ul{
+.about__card ul {
   margin: 0;
   padding-left: 18px;
-  color: rgba(255,255,255,0.70);
+  color: rgba(255, 255, 255, 0.70);
   line-height: 1.8;
 }
 
-/* responsive */
-@media (max-width: 900px){
-  .about__wrap{
-    grid-template-columns: 1fr;
-    padding: 40px 0;
+/* ── TABLET (max 900px) ─────────────────────────────────── */
+@media (max-width: 900px) {
+  .about {
+    padding: 60px 0;
+    align-items: flex-start;
   }
-  .about__title{
+
+  .about__wrap {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+
+  .about__title {
     font-size: 34px;
+  }
+}
+
+/* ── MOBILE (max 480px) ─────────────────────────────────── */
+@media (max-width: 480px) {
+  .about {
+    padding: 50px 0;
+  }
+
+  .about__wrap {
+    width: 94%;
+    gap: 20px;
+  }
+
+  .about__title {
+    font-size: 28px;
+    line-height: 1.2;
+  }
+
+  .about__desc {
+    font-size: 14px;
+    line-height: 1.7;
+  }
+
+  .about__stats {
+    gap: 10px;
+    margin-top: 18px;
+  }
+
+  .stat {
+    min-width: 0;
+    flex: 1;
+    padding: 12px 14px;
+    border-radius: 14px;
+  }
+
+  .stat h3 {
+    font-size: 18px;
+  }
+
+  .stat p {
+    font-size: 11px;
+  }
+
+  .about__card {
+    padding: 16px;
+    border-radius: 18px;
+  }
+
+  .about__card h3 {
+    font-size: 16px;
+  }
+
+  .about__card ul {
+    font-size: 14px;
+    line-height: 1.75;
+    padding-left: 16px;
+  }
+}
+
+/* ── VERY SMALL (max 360px) ─────────────────────────────── */
+@media (max-width: 360px) {
+  .about__title {
+    font-size: 24px;
+  }
+
+  .about__eyebrow {
+    font-size: 11px;
+  }
+
+  .stat h3 {
+    font-size: 16px;
+  }
+
+  .stat p {
+    font-size: 10px;
   }
 }
