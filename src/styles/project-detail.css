@@ -70,13 +70,90 @@
   margin-bottom: 16px;
 }
 
-.detail__desc {
-  font-size: 16px;
-  color: rgba(255, 255, 255, 0.60);
-  line-height: 1.75;
-  max-width: 600px;
+/* ── Progress Circle ─────────────────────────────────────── */
+.progress-circle {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
   margin-bottom: 20px;
+  padding: 6px 14px 6px 6px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.09);
+  border-radius: 50px;
+  backdrop-filter: blur(10px);
+  transition: border-color 0.2s ease, background 0.2s ease;
+  cursor: default;
 }
+
+.progress-circle:hover {
+  background: rgba(255, 255, 255, 0.07);
+  border-color: rgba(255, 255, 255, 0.15);
+}
+
+.progress-circle svg {
+  display: block;
+  flex-shrink: 0;
+}
+
+.progress-circle__info {
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+  line-height: 1;
+}
+
+.progress-circle__label {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  font-family: "Poppins", sans-serif;
+}
+
+.progress-circle__pct {
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.5px;
+  font-family: "Poppins", sans-serif;
+}
+/* ─────────────────────────────────────────────────────────── */
+
+/* ── GitHub Link ─────────────────────────────────────────── */
+.detail__github {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  margin-top: 24px;
+  padding: 11px 20px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 12px;
+  color: rgba(255, 255, 255, 0.80);
+  font-size: 13px;
+  font-weight: 600;
+  font-family: "Poppins", sans-serif;
+  text-decoration: none;
+  letter-spacing: 0.3px;
+  backdrop-filter: blur(10px);
+  transition: all 0.2s ease;
+}
+
+.detail__github:hover {
+  background: rgba(255, 122, 0, 0.10);
+  border-color: rgba(255, 122, 0, 0.35);
+  color: #ff7a00;
+  transform: translateY(-1px);
+}
+
+.detail__github svg {
+  flex-shrink: 0;
+  transition: transform 0.2s ease;
+}
+
+.detail__github:hover svg {
+  transform: rotate(-8deg) scale(1.1);
+}
+/* ─────────────────────────────────────────────────────────── */
 
 .detail__tags {
   display: flex;
@@ -95,6 +172,7 @@
   align-items: center;
   justify-content: center;
   margin-bottom: 48px;
+  overflow: hidden;
 }
 
 .detail__img-label {
@@ -102,6 +180,14 @@
   font-weight: 700;
   color: rgba(255, 122, 0, 0.25);
   letter-spacing: -0.5px;
+}
+
+.detail__img-photo {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 22px;
+  display: block;
 }
 
 /* Content grid */
@@ -172,12 +258,4 @@
   .detail__grid { grid-template-columns: 1fr; }
   .detail__block--full { grid-column: span 1; }
   .detail__img { height: 220px; }
-}
-
-.detail__img-photo {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  border-radius: 22px;
-  display: block;
 }
