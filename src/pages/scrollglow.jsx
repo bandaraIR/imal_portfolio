@@ -33,6 +33,11 @@ export default function ScrollGlow({ containerRef }) {
     [1.1, 0.85, 1.0,  0.9,  1.0]
   );
 
+  // Responsive glow size — shrinks on mobile so it doesn't overflow
+  const glowSize = typeof window !== "undefined" && window.innerWidth < 640
+    ? "min(1300px, 140vw)"
+    : "1300px";
+
   return (
     <motion.div
       style={{
@@ -42,8 +47,8 @@ export default function ScrollGlow({ containerRef }) {
         x,
         y,
         scale,
-        width: "1300px",
-        height: "1300px",
+        width: glowSize,
+        height: glowSize,
         borderRadius: "50%",
         background: `radial-gradient(circle at 40% 40%,
           rgba(255, 122, 0, 0.55),

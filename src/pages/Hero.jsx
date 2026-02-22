@@ -40,18 +40,18 @@ export default function Hero() {
           </p>
 
           <div className="hero2__actions">
-            <a 
-              className="btn btn--primary" 
-              href="https://www.linkedin.com/in/imal-ravindu-2ab2123a3/" 
-              target="_blank" 
+            <a
+              className="btn btn--primary"
+              href="https://www.linkedin.com/in/imal-ravindu-2ab2123a3/"
+              target="_blank"
               rel="noopener noreferrer"
             >
               View My LinkedIn
             </a>
 
-            <a 
-              className="btn btn--secondary" 
-              href="/CV-imal ravindu (1).pdf" 
+            <a
+              className="btn btn--secondary"
+              href="/CV-imal ravindu (1).pdf"
               download
             >
               Download CV
@@ -68,9 +68,7 @@ export default function Hero() {
           <div className="float float--css">CSS</div>
           <div className="float float--js">JS</div>
 
-          
-           <img src={imal3d} alt="Imal 3D" className="hero2__img" />
-          
+          <img src={imal3d} alt="Imal 3D" className="hero2__img" />
         </motion.div>
 
       </div>
