@@ -51,7 +51,7 @@ export default function Hero() {
 
             <a
               className="btn btn--secondary"
-              href="/CV-imal ravindu (1).pdf"
+              href="/CV-IRB.pdf"
               download
             >
               Download CV
