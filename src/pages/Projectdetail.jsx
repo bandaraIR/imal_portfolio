@@ -8,14 +8,14 @@ import "../styles/project-detail.css";
 import auriImg      from "../assets/auri1.jpg";
 import portfolioImg  from "../assets/ir-portfolio.jpeg";
 import autocareImg   from "../assets/CarRental.jpeg";
-import roomcraft from "../assets/roomcraft.png";
+import roomcraftImg from "../assets/roomcraft.png";
 
 const projectImages = {
   auri:          auriImg,
   portfolio:      portfolioImg,
   "vehicle-fine": null,
   autocare:       autocareImg,
-  spacestyler:   null,
+  roomcraft: roomcraftImg,
 };
 
 const projectDetails = {
@@ -48,10 +48,10 @@ const projectDetails = {
     challenges: "Handling real-time state for bookings — making sure two users couldn't book the same car at the same time using Firestore transactions.",
   },
   roomcraft: {
-    progress: 50,
+    progress: 100,
     github: "https://github.com/Chanidubtw/RoomCraft",
-    overview: "SpaceStyler is an interactive room design tool that lets users place furniture in 2D and preview in a 3D environment before making purchasing decisions.",
-    features: ["2D drag-and-drop room layout", "3D room preview with Three.js", "Furniture catalogue with categories", "Save and export room designs", "Mobile touch support"],
+    overview: "RoomCraft is an interactive room design tool that lets users place furniture in 2D and preview in a 3D environment before making purchasing decisions.",
+    features: ["2D drag-and-drop room layout", "3D room preview", "Furniture catalogue with categories", "Save and export room designs", "Mobile touch support"],
     challenges: "Syncing the 2D editor state with the 3D Three.js scene in real time without performance drops — solved with a shared state manager and debounced renders.",
   },
 };
@@ -127,6 +127,14 @@ export default function ProjectDetail() {
 
   const detail = projectDetails[project.id];
   const image  = projectImages[project.id];
+  if (!detail) {
+    return (
+      <div className="detail-notfound">
+        <p>Project details not found.</p>
+        <button onClick={() => navigate(-1)}>← Go Back</button>
+      </div>
+    );
+  }
 
   return (
     <div className="detail">

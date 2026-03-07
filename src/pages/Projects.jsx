@@ -40,8 +40,8 @@ export const projects = [
     color: "#ff7a00",
   },
   {
-    id: "spacestyler",
-    title: "SpaceStyler Room Design",
+    id: "roomcraft",
+    title: "RoomCraft",
     category: "Web App",
     year: "2024",
     desc: "An interactive 2D/3D room design tool that lets users furnish and visualize spaces before buying.",
