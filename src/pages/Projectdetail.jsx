@@ -8,6 +8,7 @@ import "../styles/project-detail.css";
 import auriImg      from "../assets/auri1.jpg";
 import portfolioImg  from "../assets/ir-portfolio.jpeg";
 import autocareImg   from "../assets/CarRental.jpeg";
+import roomcraft from "../assets/roomcraft.png";
 
 const projectImages = {
   auri:          auriImg,
@@ -46,9 +47,9 @@ const projectDetails = {
     features: ["Real-time car availability system", "Online booking and reservation", "Firebase backend integration", "Admin fleet management dashboard", "Responsive across all devices"],
     challenges: "Handling real-time state for bookings — making sure two users couldn't book the same car at the same time using Firestore transactions.",
   },
-  spacestyler: {
+  roomcraft: {
     progress: 50,
-    github: "https://github.com/yourusername/spacestyler",
+    github: "https://github.com/Chanidubtw/RoomCraft",
     overview: "SpaceStyler is an interactive room design tool that lets users place furniture in 2D and preview in a 3D environment before making purchasing decisions.",
     features: ["2D drag-and-drop room layout", "3D room preview with Three.js", "Furniture catalogue with categories", "Save and export room designs", "Mobile touch support"],
     challenges: "Syncing the 2D editor state with the 3D Three.js scene in real time without performance drops — solved with a shared state manager and debounced renders.",
