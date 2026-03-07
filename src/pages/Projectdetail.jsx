@@ -27,7 +27,7 @@ const projectDetails = {
     challenges: "Building a fashion-forward UI that felt luxury without being heavy. The key was restraint — letting whitespace and typography do the work.",
   },
   portfolio: {
-    progress: 100,
+    progress: 90,
     github: "https://github.com/bandaraIR/imal_portfolio",
     overview: "A personal portfolio built to showcase development skills with scroll-driven animations, a moving orange glow system, and a clean dark aesthetic.",
     features: ["Scroll-driven orange glow animation", "Framer Motion page transitions", "Skills progress bars", "Projects with individual detail pages", "Fully responsive"],
