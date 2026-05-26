@@ -10,8 +10,8 @@ import portfolioImg  from "../assets/ir-portfolio.jpeg";
 import autocareImg   from "../assets/CarRental.jpeg";
 import roomcraftImg from "../assets/roomcraft.png";
 import objectDetectionImg from "../assets/object_detection.png";
-import vehicleFineImg from "../assets/mobileapp_user.png";
-import vehicleFineImg2 from "../assets/mobileapp_police.png";
+import vehicleFineImg from "../assets/mobileapp_user.PNG";
+import vehicleFineImg2 from "../assets/mobileapp_police.PNG";
 
 const projectImages = {
   auri:          auriImg,
