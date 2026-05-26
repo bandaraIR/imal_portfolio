@@ -176,6 +176,9 @@
   .project-card--featured {
     grid-column: span 2;
   }
+  .project-card:last-child {
+    grid-column: span 2;
+  }
   .projects__title {
     font-size: 36px;
   }
@@ -186,6 +189,9 @@
     grid-template-columns: 1fr;
   }
   .project-card--featured {
+    grid-column: span 1;
+  }
+  .project-card:last-child {
     grid-column: span 1;
   }
 }
