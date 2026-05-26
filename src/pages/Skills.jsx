@@ -27,11 +27,11 @@ const skills = [
     ],
   },
   {
-    category: "AI & ML",
+    category: "DevOps & Tools",
     items: [
-      { name: "Python", level: 78 },
-      { name: "TensorFlow", level: 70 },
-      { name: "OpenCV", level: 72 },
+      { name: "Git", level: 88 },
+      { name: "GitHub", level: 85 },
+      { name: "Vite", level: 80 },
     ],
   },
 ];

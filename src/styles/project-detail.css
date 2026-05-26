@@ -252,6 +252,42 @@
   color: rgba(255,255,255,0.6);
 }
 
+/* Mobile app portrait image fix */
+.detail__img--portrait {
+  height: 560px;
+  align-items: flex-start;
+}
+
+.detail__img--portrait .detail__img-photo {
+  width: auto;
+  height: 100%;
+  object-fit: contain;
+}
+
+/* Multi image wrapper */
+.detail__img-wrap {
+  display: flex;
+  gap: 16px;
+  margin-bottom: 48px;
+}
+
+.detail__img-wrap .detail__img {
+  flex: 1;
+  margin-bottom: 0;
+}
+
+/* Portrait mode for mobile app images */
+.detail__img-wrap--portrait .detail__img {
+  height: 560px;
+  align-items: flex-start;
+}
+
+.detail__img-wrap--portrait .detail__img-photo {
+  width: auto;
+  height: 100%;
+  object-fit: contain;
+}
+
 /* Responsive */
 @media (max-width: 700px) {
   .detail__title { font-size: 36px; }

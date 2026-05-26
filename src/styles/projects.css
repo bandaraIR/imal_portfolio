@@ -55,6 +55,11 @@
   grid-column: span 2;
 }
 
+/* last card stretches to fill row if alone */
+.project-card:last-child {
+  grid-column: span 3;
+}
+
 /* ── Card ── */
 .project-card {
   border-radius: 22px;

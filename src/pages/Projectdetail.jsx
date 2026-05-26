@@ -9,22 +9,30 @@ import auriImg      from "../assets/auri1.jpg";
 import portfolioImg  from "../assets/ir-portfolio.jpeg";
 import autocareImg   from "../assets/CarRental.jpeg";
 import roomcraftImg from "../assets/roomcraft.png";
+import objectDetectionImg from "../assets/object_detection.png";
+import vehicleFineImg from "../assets/mobileapp_user.png";
+import vehicleFineImg2 from "../assets/mobileapp_police.png";
 
 const projectImages = {
   auri:          auriImg,
   portfolio:      portfolioImg,
-  "vehicle-fine": null,
+  "vehicle-fine": [vehicleFineImg, vehicleFineImg2],
   autocare:       autocareImg,
   roomcraft: roomcraftImg,
+  "object-detection": objectDetectionImg,
 };
 
 const projectDetails = {
   auri: {
     progress: 100,
     github: "https://github.com/bandaraIR/Auri",
-    overview: "Auri is a premium clothing brand website designed with a dark, editorial aesthetic. It features smooth page transitions, a product catalogue with filtering, and a fully responsive layout.",
-    features: ["Product catalogue with category filtering", "Smooth Framer Motion page transitions", "Dark editorial design system", "Mobile-first responsive layout", "Animated hero section"],
-    challenges: "Building a fashion-forward UI that felt luxury without being heavy. The key was restraint — letting whitespace and typography do the work.",
+    overview: "Auri is a women's fashion brand website for a real Sri Lankan clothing brand. Built with a clean, modern aesthetic featuring smooth page transitions, a product catalogue with filtering, and a fully responsive layout.",
+    features: [ "Product catalogue with category filtering",
+    "Smooth Framer Motion page transitions",
+    "Clean modern design system",
+    "Mobile-first responsive layout",
+    "Animated hero section",],
+    challenges: "Translating a real brand identity into a web experience that feels polished and on-brand — balancing elegant typography, layout, and smooth animations without overcomplicating the UI.",
   },
   portfolio: {
     progress: 90,
@@ -35,10 +43,14 @@ const projectDetails = {
   },
   "vehicle-fine": {
     progress: 100,
-    github: "https://github.com/yourusername/vehicle-fine",
-    overview: "A Flutter mobile application with dual dashboards for both regular users and police officers to manage, issue, and track vehicle traffic violations.",
-    features: ["Dual user/police officer dashboards", "Firebase Firestore real-time database", "Violation issuance and payment tracking", "Authentication with Firebase Auth", "AI-assisted violation detection"],
-    challenges: "Designing two completely different UX flows within a single app while keeping the codebase clean and the Firebase queries efficient.",
+    github: "https://github.com/bandaraIR/SafeRoad_App",
+    overview: "A Flutter mobile application with three role-based dashboards for users, police officers, and admins to manage, issue, and track vehicle traffic violations with a Firebase backend.",
+    features: ["3-role system: User, Police Officer, and Admin dashboards",
+    "Firebase Firestore real-time database",
+    "Violation issuance and payment tracking",
+    "Authentication with Firebase Auth",
+    "AI-assisted violation detection"],
+    challenges: "Designing three completely different UX flows within a single app while keeping the codebase clean and the Firebase queries efficient.",
   },
   autocare: {
     progress: 100,
@@ -54,6 +66,21 @@ const projectDetails = {
     features: ["2D drag-and-drop room layout", "3D room preview", "Furniture catalogue with categories", "Save and export room designs", "Mobile touch support"],
     challenges: "Syncing the 2D editor state with the 3D Three.js scene in real time without performance drops — solved with a shared state manager and debounced renders.",
   },
+  "object-detection": {
+  progress: 100,
+  github: "https://github.com/bandaraIR/object_detection",
+  overview: "A smart traffic enforcement system that uses YOLOv8 and EasyOCR to automatically detect red light violations, recognize criminals in real time, and manage fines — with image evidence stored for every incident.",
+  features: [
+    "Real-time red light violation detection using YOLOv8",
+    "Criminal vehicle number plate recognition and send alert to police officers",
+    "Automated fine generation and management",
+    "Image evidence capture and storage per incident",
+    "3-role mobile app: Admin, Officer, and User",
+    "Users can view their fines and evidence images",
+  ],
+  challenges: "Combining multiple detection models (vehicle detection, license plate OCR, and face recognition) into a single real-time pipeline without bottlenecking performance — solved by running each model asynchronously with a shared frame buffer.",
+},
+  
 };
 
 // ── Progress Circle Component ────────────────────────────────
@@ -190,19 +217,30 @@ export default function ProjectDetail() {
           )}
         </motion.div>
 
+        
         {/* Hero image */}
-        <motion.div
-          className="detail__img"
-          initial={{ opacity: 0, y: 24 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7, ease: "easeOut", delay: 0.1 }}
-        >
-          {image ? (
-            <img src={image} alt={project.title} className="detail__img-photo" />
-          ) : (
-            <span className="detail__img-label">{project.title}</span>
-          )}
-        </motion.div>
+<motion.div
+  className={`detail__img-wrap ${project.category === "Flutter App" ? "detail__img-wrap--portrait" : ""}`}
+  initial={{ opacity: 0, y: 24 }}
+  animate={{ opacity: 1, y: 0 }}
+  transition={{ duration: 0.7, ease: "easeOut", delay: 0.1 }}
+>
+  {Array.isArray(image) ? (
+    image.map((img, i) => (
+      <div key={i} className="detail__img">
+        <img src={img} alt={`${project.title} ${i + 1}`} className="detail__img-photo" />
+      </div>
+    ))
+  ) : (
+    <div className="detail__img">
+      {image ? (
+        <img src={image} alt={project.title} className="detail__img-photo" />
+      ) : (
+        <span className="detail__img-label">{project.title}</span>
+      )}
+    </div>
+  )}
+</motion.div>
 
         {/* Content grid */}
         <motion.div
