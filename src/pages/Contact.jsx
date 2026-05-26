@@ -1,24 +1,38 @@
+import { useRef, useState } from "react";
 import { motion } from "framer-motion";
+import emailjs from "@emailjs/browser";
 import "../styles/contact.css";
 
+const SERVICE_ID = import.meta.env.VITE_SERVICE_ID;
+const TEMPLATE_ID = import.meta.env.VITE_TEMPLATE_ID;
+const PUBLIC_KEY = import.meta.env.VITE_PUBLIC_KEY;
+
 export default function Contact() {
+  const formRef = useRef();
+  const [status, setStatus] = useState("idle");
+
   const handleSubmit = (e) => {
     e.preventDefault();
-    const form = e.target;
-    const name  = form.name.value;
-    const email = form.email.value;
-    const msg   = form.message.value;
-    // Wire up to EmailJS / Formspree / your backend here
-    console.log({ name, email, msg });
-    form.reset();
-    alert("Message sent! I'll get back to you soon.");
+    setStatus("sending");
+
+    emailjs
+      .sendForm(SERVICE_ID, TEMPLATE_ID, formRef.current, PUBLIC_KEY)
+      .then(() => {
+        setStatus("success");
+        formRef.current.reset();
+        setTimeout(() => setStatus("idle"), 4000);
+      })
+      .catch(() => {
+        setStatus("error");
+        setTimeout(() => setStatus("idle"), 4000);
+      });
   };
 
   return (
     <footer className="contact" id="contact">
       <div className="contact__wrap">
 
-        {/* Top: CTA heading */}
+        {/* Top Section */}
         <motion.div
           className="contact__top"
           initial={{ opacity: 0, y: 24 }}
@@ -33,7 +47,7 @@ export default function Contact() {
           </p>
         </motion.div>
 
-        {/* Middle: form + links side by side */}
+        {/* Grid Section */}
         <motion.div
           className="contact__grid"
           initial={{ opacity: 0, y: 28 }}
@@ -42,35 +56,68 @@ export default function Contact() {
           transition={{ duration: 0.6, ease: "easeOut", delay: 0.1 }}
         >
           {/* Form */}
-          <form className="contact__form" onSubmit={handleSubmit}>
+          <form className="contact__form" ref={formRef} onSubmit={handleSubmit}>
             <div className="contact__row">
               <div className="contact__field">
                 <label>Name</label>
-                <input name="name" type="text" placeholder="Your name" required />
+                <input
+                  name="from_name"
+                  type="text"
+                  placeholder="Your name"
+                  required
+                />
               </div>
+
               <div className="contact__field">
                 <label>Email</label>
-                <input name="email" type="email" placeholder="your@email.com" required />
+                <input
+                  name="from_email"
+                  type="email"
+                  placeholder="your@email.com"
+                  required
+                />
               </div>
             </div>
+
             <div className="contact__field">
               <label>Message</label>
-              <textarea name="message" rows={5} placeholder="Tell me about your project..." required />
+              <textarea
+                name="message"
+                rows={5}
+                placeholder="Tell me about your project..."
+                required
+              />
             </div>
-            <button className="contact__btn" type="submit">
-              Send Message <span>→</span>
+
+            <button
+              className="contact__btn"
+              type="submit"
+              disabled={status === "sending"}
+            >
+              {status === "sending" ? "Sending..." : "Send Message"} <span>→</span>
             </button>
+
+            {status === "success" && (
+              <p style={{ color: "#4ade80", marginTop: "12px", fontSize: "14px" }}>
+                ✓ Message sent! I'll get back to you soon.
+              </p>
+            )}
+
+            {status === "error" && (
+              <p style={{ color: "#f87171", marginTop: "12px", fontSize: "14px" }}>
+                ✗ Something went wrong. Please try again.
+              </p>
+            )}
           </form>
 
-          {/* Links */}
+          {/* Contact Info */}
           <div className="contact__info">
             <p className="contact__info-label">Find me on</p>
 
+            {/* Email */}
             <a
               className="contact__link"
-              href="mailto:imalravindu@gmail.com"
-              target="_blank"
-              rel="noopener noreferrer"
+              href="mailto:imalbandara624@gmail.com"
             >
               <span className="contact__link-icon">✉</span>
               <div>
@@ -79,6 +126,7 @@ export default function Contact() {
               </div>
             </a>
 
+            {/* GitHub */}
             <a
               className="contact__link"
               href="https://github.com/bandaraIR"
@@ -88,10 +136,11 @@ export default function Contact() {
               <span className="contact__link-icon">⌥</span>
               <div>
                 <p className="contact__link-title">GitHub</p>
-                <p className="contact__link-val">github.com/imalravindu</p>
+                <p className="contact__link-val">github.com/bandaraIR</p>
               </div>
             </a>
 
+            {/* Instagram */}
             <a
               className="contact__link"
               href="https://www.instagram.com/ravi_imal_?igsh=dGM1aXc0dmNxZXg3&utm_source=qr"
@@ -107,7 +156,7 @@ export default function Contact() {
           </div>
         </motion.div>
 
-        {/* Bottom bar */}
+        {/* Bottom */}
         <div className="contact__bottom">
           <p>© {new Date().getFullYear()} Imal Ravindu. All rights reserved.</p>
           <p>Built with React & Framer Motion</p>
