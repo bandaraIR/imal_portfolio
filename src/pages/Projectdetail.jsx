@@ -12,6 +12,8 @@ import roomcraftImg from "../assets/roomcraft.png";
 import objectDetectionImg from "../assets/object_detection.png";
 import vehicleFineImg from "../assets/mobileapp_user.PNG";
 import vehicleFineImg2 from "../assets/mobileapp_police.PNG";
+import radarInstallImg from "../assets/radar_install.jpg";
+import radarDisplayImg from "../assets/radar_display.jpg";
 
 const projectImages = {
   auri:          auriImg,
@@ -20,6 +22,7 @@ const projectImages = {
   autocare:       autocareImg,
   roomcraft: roomcraftImg,
   "object-detection": objectDetectionImg,
+  "vehicle-speed-detection": [radarInstallImg, radarDisplayImg],
 };
 
 const projectDetails = {
@@ -80,7 +83,19 @@ const projectDetails = {
   ],
   challenges: "Combining multiple detection models (vehicle detection, license plate OCR, and face recognition) into a single real-time pipeline without bottlenecking performance — solved by running each model asynchronously with a shared frame buffer.",
 },
-  
+  "vehicle-speed-detection": {
+    progress: 100,
+    github: null,
+    overview: "Designed and delivered a real-time vehicle speed detection and automated LED warning display system for a multinational manufacturing client's factory entrance. The system detects vehicle speed using a 24GHz Doppler radar and displays color-coded warnings on a large outdoor LED panel — SAFE (green) for vehicles under 15 km/h, DANGER (red) for those exceeding it, and blank when no vehicle is detected.",
+    features: [
+      "Real-time speed measurement via 24GHz Doppler radar sensor",
+      "High-visibility, color-coded outdoor LED warning display",
+      "Dynamic speed threshold logic (Green warning under 15 km/h, Red warning over 15 km/h)",
+      "Automated standby blank mode when no vehicle is present to save power",
+      "Industrial weather-proof enclosure for robust outdoor factory entrance deployment"
+    ],
+    challenges: "Calibrating the 24GHz radar sensor to filter out noise, pedestrians, and adjacent lane traffic while capturing vehicles. This was solved by tuning sensitivity parameters, deploying digital signal filtering on the controller, and optimizing the sensor mount angle."
+  }
 };
 
 // ── Progress Circle Component ────────────────────────────────

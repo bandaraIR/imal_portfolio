@@ -57,7 +57,7 @@
 
 /* last card stretches to fill row if alone */
 .project-card:last-child {
-  grid-column: span 3;
+  grid-column: span 2;
 }
 
 /* ── Card ── */
@@ -177,7 +177,7 @@
     grid-column: span 2;
   }
   .project-card:last-child {
-    grid-column: span 2;
+    grid-column: span 1;
   }
   .projects__title {
     font-size: 36px;

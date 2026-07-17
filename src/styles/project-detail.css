@@ -294,4 +294,11 @@
   .detail__grid { grid-template-columns: 1fr; }
   .detail__block--full { grid-column: span 1; }
   .detail__img { height: 220px; }
+
+  .detail__img-wrap {
+    flex-direction: column;
+  }
+  .detail__img-wrap .detail__img {
+    height: 300px;
+  }
 }

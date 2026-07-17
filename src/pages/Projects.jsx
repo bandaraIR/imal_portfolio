@@ -49,14 +49,23 @@ export const projects = [
     color: "#ff7a00",
   },
   {
-  id: "object-detection",      // used in the URL: /projects/your-project-id
-  title: "Object Detection And Recognition",
-  category: "ML",  // e.g. "Flutter App", "Web App", "React Website"
-  year: "2026",
-  desc: "A smart traffic enforcement system with real-time red light violation detection, criminal recognition, and automated fine management — with a 3-role mobile app for evidence viewing and penalty tracking.",
-  tags: ["YOLOV8", "easyOCR", "Python"],  // tech stack
-  color: "#ff7a00",           // keep this the same unless you want a different accent
-},
+    id: "object-detection",      // used in the URL: /projects/your-project-id
+    title: "Object Detection And Recognition",
+    category: "ML",  // e.g. "Flutter App", "Web App", "React Website"
+    year: "2026",
+    desc: "A smart traffic enforcement system with real-time red light violation detection, criminal recognition, and automated fine management — with a 3-role mobile app for evidence viewing and penalty tracking.",
+    tags: ["YOLOV8", "easyOCR", "Python"],  // tech stack
+    color: "#ff7a00",           // keep this the same unless you want a different accent
+  },
+  {
+    id: "vehicle-speed-detection",
+    title: "Vehicle Speed Detection & LED Warning Display System",
+    category: "IoT System",
+    year: "2025",
+    desc: "A real-time speed detection and automated warning system utilizing 24GHz Doppler radar and color-coded outdoor displays.",
+    tags: ["Radar", "C++", "IoT", "LED Display"],
+    color: "#ff7a00",
+  },
 ];
 
 const containerVariants = {
